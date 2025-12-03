@@ -6,7 +6,7 @@ A full-stack web application for detecting deepfake videos using deep learning. 
 
 Watch the system in action:
 
-https://github.com/SI1am/DeepDetect/assets/working-demo.mp4
+https://github.com/SI1am/DeepDetect/Working.mp4
 
 **Video File**: `Working.mp4` - Full walkthrough of the project workflow and detection capabilities.
 
