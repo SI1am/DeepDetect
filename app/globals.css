@@ -1,0 +1,516 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.13 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.13 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.65 0.22 280);
+  --primary-foreground: oklch(0.1 0 0);
+  --secondary: oklch(0.2 0 0);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.75 0.2 280);
+  --accent-foreground: oklch(0.08 0 0);
+  --destructive: oklch(0.58 0.25 27.3);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.2 0 0);
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.65 0.22 280);
+  --chart-1: oklch(0.65 0.22 41.1);
+  --chart-2: oklch(0.6 0.12 184.7);
+  --chart-3: oklch(0.4 0.07 227.4);
+  --chart-4: oklch(0.83 0.19 84.4);
+  --chart-5: oklch(0.77 0.19 70.1);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.13 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.13 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.65 0.22 280);
+  --primary-foreground: oklch(0.1 0 0);
+  --secondary: oklch(0.2 0 0);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.75 0.2 280);
+  --accent-foreground: oklch(0.08 0 0);
+  --destructive: oklch(0.58 0.25 27.3);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.2 0 0);
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.65 0.22 280);
+  --chart-1: oklch(0.65 0.22 41.1);
+  --chart-2: oklch(0.6 0.12 184.7);
+  --chart-3: oklch(0.4 0.07 227.4);
+  --chart-4: oklch(0.83 0.19 84.4);
+  --chart-5: oklch(0.77 0.19 70.1);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Rich animations and transitions */
+@layer utilities {
+  /* expanded animation utilities with more sophisticated animations */
+  .animate-fade-in {
+    @apply animate-in fade-in duration-500;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    @apply animate-in slide-in-from-bottom-6 duration-500;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-bounce-subtle {
+    animation: subtleBounce 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  .animate-gradient-shift {
+    animation: gradientShift 3s ease infinite;
+  }
+
+  .animate-wave-1 {
+    animation: wave-1 5s ease-in-out infinite;
+  }
+
+  .animate-wave-2 {
+    animation: wave-2 5s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+
+  .animate-wave-3 {
+    animation: wave-3 5s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .animate-wave-4 {
+    animation: wave-4 5s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+
+  /* Added pulsating wave animation classes */
+  .animate-pulse-wave-1 {
+    animation: pulse-wave-1 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-pulse-wave-2 {
+    animation: pulse-wave-2 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-pulse-wave-3 {
+    animation: pulse-wave-3 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Stagger animations for children */
+  .stagger-children > * {
+    animation-fill-mode: both;
+  }
+
+  .stagger-children > :nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .stagger-children > :nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-children > :nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .stagger-children > :nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .stagger-children > :nth-child(5) {
+    animation-delay: 0.4s;
+  }
+
+  .stagger-children > :nth-child(n + 6) {
+    animation-delay: calc((var(--index, 0) + 1) * 0.1s);
+  }
+
+  /* Hover animations */
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/50;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Keyframe animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes subtleBounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: 0 0 5px rgba(147, 51, 234, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(147, 51, 234, 0.6);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes wave-1 {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    25% {
+      transform: translateX(-60px) translateY(10px);
+    }
+    50% {
+      transform: translateX(-120px) translateY(0);
+    }
+    75% {
+      transform: translateX(-60px) translateY(-10px);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  @keyframes wave-2 {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    25% {
+      transform: translateX(40px) translateY(-8px);
+    }
+    50% {
+      transform: translateX(80px) translateY(0);
+    }
+    75% {
+      transform: translateX(40px) translateY(8px);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  @keyframes wave-3 {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    25% {
+      transform: translateX(-80px) translateY(-12px);
+    }
+    50% {
+      transform: translateX(-160px) translateY(0);
+    }
+    75% {
+      transform: translateX(-80px) translateY(12px);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  @keyframes wave-4 {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    25% {
+      transform: translateX(50px) translateY(6px);
+    }
+    50% {
+      transform: translateX(100px) translateY(0);
+    }
+    75% {
+      transform: translateX(50px) translateY(-6px);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  /* New pulsating wave animations - sends pulse every 5 seconds */
+  @keyframes pulse-wave-1 {
+    0% {
+      r: 100;
+      stroke-width: 2;
+      opacity: 1;
+    }
+    50% {
+      r: 200;
+      stroke-width: 1.5;
+      opacity: 0.5;
+    }
+    100% {
+      r: 100;
+      stroke-width: 2;
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulse-wave-2 {
+    0% {
+      r: 100;
+      stroke-width: 2;
+      opacity: 0;
+    }
+    25% {
+      r: 120;
+      stroke-width: 1.5;
+      opacity: 0.6;
+    }
+    75% {
+      r: 200;
+      stroke-width: 1;
+      opacity: 0;
+    }
+    100% {
+      r: 100;
+      stroke-width: 2;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-wave-3 {
+    0% {
+      r: 100;
+      stroke-width: 2;
+      opacity: 0;
+    }
+    15% {
+      r: 130;
+      stroke-width: 1.5;
+      opacity: 0.5;
+    }
+    85% {
+      r: 220;
+      stroke-width: 0.5;
+      opacity: 0;
+    }
+    100% {
+      r: 100;
+      stroke-width: 2;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.3;
+      rx: 400;
+      ry: 200;
+    }
+    50% {
+      opacity: 0.6;
+      rx: 500;
+      ry: 300;
+    }
+  }
+}
